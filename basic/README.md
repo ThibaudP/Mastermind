@@ -1,8 +1,8 @@
 # Simple Mastermind (BASIC version)
-Simple player vs computer Mastermind clone, in classic BASIC (yabasic)
+Simple player vs computer Mastermind clone, in classic BASIC (BwBasic, a GW-Basic clone)
 
 ## How to use
-Install Bywater BASIC:
+Install BywaterBASIC (BwBASIC):
 ```bash
 $ sudo apt install bwbasic
 ```

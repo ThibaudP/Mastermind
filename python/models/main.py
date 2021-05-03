@@ -10,24 +10,26 @@ def mastermind():
     nbTurns = 12
 
     secretCode = [str(randint(1, digits)) for i in range(level)]
-    turn = 0
+    turn = 1
 
     print("")
     print("Welcome to Mastermind! (python version)")
     print("The code is 4 digits long, chosen among 6 possible digits (1 to 6)")
     print("Can you find it in less than 12 turns?")
     print("")
-    print("".join(secretCode))
+    # print("".join(secretCode))
 
-    while (turn < nbTurns):
-        
-        play = list(input("Turn {} - Your guess : ".format(turn)))
+    while (turn <= nbTurns):
+
+        play = list(input("Turn {} - Your guess:\n".format(turn)))
         code = list(secretCode)
+        right = 0
+        wrong = 0
+
         if len(play) != 4:
             player_lost(secretCode)
             return
-        right = 0
-        wrong = 0
+
         for i, v in enumerate(play):
             if v == code[i]:
                 right += 1
@@ -41,7 +43,7 @@ def mastermind():
         if right == 4:
             return(print("\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \o/\n"))
 
-        print("Right: {} - Wrong : {}".format(right, wrong))
+        print("Right: {} - Wrong: {}\n".format(right, wrong))
 
         turn += 1
 

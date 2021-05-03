@@ -11,7 +11,7 @@ PRINT "Can you find it in less than 12 turns?"
 PRINT ""
 
 PRINT "Computing combination (should take ~5 seconds)"
-FOR I=1 TO 4
+FOR I=1 TO LEVEL
     RANDOMIZE TIMER
     SECRETCODE$ = SECRETCODE$+RIGHT$(STR$(INT(RND*(DIGITS)+1)), 1)
 
@@ -22,7 +22,7 @@ FOR I=1 TO 4
 NEXT
 
 PRINT "Combination found!"
-REM PRINT SECRETCODE$
+PRINT SECRETCODE$
 PRINT ""
 
 WHILE TURN <= NBTURNS
@@ -33,7 +33,7 @@ WHILE TURN <= NBTURNS
     PRINT "Turn"+STR$(TURN)+" - Your guess:"
     INPUT PLAY$
 
-    IF LEN(PLAY$)<4 THEN
+    IF LEN(PLAY$)<LEVEL THEN
         PRINT ""
         PRINT "(╯°□°)╯︵ ┻━┻"
         PRINT ""
@@ -43,7 +43,7 @@ WHILE TURN <= NBTURNS
     END IF
 
     REM Check all the correct characters
-    FOR I=1 TO 4
+    FOR I=1 TO LEVEL
         IF MID$(PLAY$,I,1)=MID$(CODE$,I,1) THEN
             RIGHT=RIGHT+1
             MID$(PLAY$,I,1) = "#"
@@ -52,8 +52,8 @@ WHILE TURN <= NBTURNS
     NEXT
 
     REM Check the wrong characters
-    FOR I=1 TO 4
-        FOR J=1 TO 4
+    FOR I=1 TO LEVEL
+        FOR J=1 TO LEVEL
             IF MID$(PLAY$,J,1)=MID$(CODE$,I,1) THEN
                 WRONG=WRONG+1
                 MID$(CODE$,I,1) = "*"
@@ -61,7 +61,7 @@ WHILE TURN <= NBTURNS
         NEXT
     NEXT
 
-    IF RIGHT=4 THEN
+    IF RIGHT=LEVEL THEN
         PRINT ""
         PRINT "(ง ͡ʘ ͜ʖ ͡ʘ)ง"
         PRINT ""

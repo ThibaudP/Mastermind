@@ -4,15 +4,15 @@ Simple player vs computer Mastermind clone, in (very crude) Ada
 ## How to use
 Install GNAT (GCC compiler for ADA):
 ```bash
-& sudo apt install gnat
+$ sudo apt install gnat
 ```
 Compile
 ```bash
-& gnatmake mastermind.adb
+$ gnatmake mastermind.adb
 ```
 Run
 ```bash
-& ./mastermind
+$ ./mastermind
 ```
 
 ## Utils

@@ -1,5 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
-with Ada.Strings.Maps; use Ada.Strings.Maps;
+-- with Ada.Strings.Maps; use Ada.Strings.Maps;
 with Ada.Numerics.discrete_random;
 
 procedure Mastermind is
@@ -63,6 +63,7 @@ begin
 
         -- Set 4 beginning chars of InputPlay as Play
         Play := InputPlay(1..4);
+        
 
         -- Check if player input is at least 4 characters long, game lost if not
         I := 1;
@@ -88,9 +89,9 @@ begin
 
         for I in 1..4 loop
             for J in 1..4 loop
-                if Play(I) = Code(J) then
+                if Play(J) = Code(I) then
                     Wrong := Wrong + 1;
-                    Code(J) := '*';
+                    Code(I) := '*';
                 end if;
             end loop;
         end loop;

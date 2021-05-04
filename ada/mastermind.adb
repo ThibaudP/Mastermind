@@ -44,8 +44,7 @@ begin
         SecretCode(I) := Character'Val(RandNum + 48);
         I := I + 1;
     end loop;
-    SecretCode := "3123";
-    Put_Line("Code: " & SecretCode);
+    -- Put_Line("Code: " & SecretCode);
 
     while Turn <= NbTurns loop
         -- Set all variables back to default

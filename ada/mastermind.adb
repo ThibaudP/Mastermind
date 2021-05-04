@@ -23,7 +23,7 @@ procedure Mastermind is
     Play: String(1..4);
     Last: Integer;
     Right: Integer := 0;
-    Wrong: Integer := 0;
+    Miss: Integer := 0;
     I: Natural;
     J: Natural := 1;
 begin
@@ -44,14 +44,14 @@ begin
         SecretCode(I) := Character'Val(RandNum + 48);
         I := I + 1;
     end loop;
-
-    -- Put_Line("Code: " & SecretCode);
+    SecretCode := "3123";
+    Put_Line("Code: " & SecretCode);
 
     while Turn <= NbTurns loop
         -- Set all variables back to default
         Code := SecretCode;
         Right := 0;
-        Wrong := 0;
+        Miss := 0;
         -- Weird thing happens when you input the exact number of chars, so adding one
         -- for good measure (loop jumps twice if you enter 4 chars into a 4 char string. No idea why.)
         InputPlay := "00000";
@@ -83,14 +83,14 @@ begin
             if Play(I) = Code(I) then
                 Right := Right + 1;
                 Code(I) := '#';
-                Play(I) := '*';
+                Play(I) := 'X';
             end if;
         end loop;
 
         for I in 1..4 loop
             for J in 1..4 loop
                 if Play(J) = Code(I) then
-                    Wrong := Wrong + 1;
+                    Miss := Miss + 1;
                     Code(I) := '*';
                 end if;
             end loop;
@@ -105,7 +105,17 @@ begin
             return;
         end if;
 
-        Put_Line("Right:" & Integer'Image(Right) & " - Wrong:" & Integer'Image(Wrong));
+        Put_Line("Right:" & Integer'Image(Right) & " - Miss:" & Integer'Image(Miss));
+        -- Commment next block to disable hints
+        for I in 1..4 loop
+            if Code(I) /= '#' then
+                if Code(I) /= '*' then
+                    Code(I) := 'x';
+                end if;
+            end if;
+        end loop;
+        Put_Line("Hint: "& Code &" (#: Right, *: Miss, x: Wrong)");
+
         New_Line;
 
         -- Put_Line("Your guess: " & Play);

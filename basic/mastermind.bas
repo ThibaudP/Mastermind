@@ -11,6 +11,8 @@ PRINT "Can you find it in less than 12 turns?"
 PRINT ""
 
 PRINT "Computing combination (should take ~5 seconds)"
+REM BwBASIC uses current time as seed for its rng, so we need to wait for
+REM ~1 second for the current time to change before we request another random number
 FOR I=1 TO LEVEL
     RANDOMIZE TIMER
     SECRETCODE$ = SECRETCODE$+RIGHT$(STR$(INT(RND*(DIGITS)+1)), 1)

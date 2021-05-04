@@ -96,8 +96,6 @@ begin
             end loop;
         end loop;
 
-        Put_Line("Right:" & Integer'Image(Right) & " - Wrong:" & Integer'Image(Wrong));
-        New_Line;
 
         if Right = 4 then
             New_Line;
@@ -107,6 +105,8 @@ begin
             return;
         end if;
 
+        Put_Line("Right:" & Integer'Image(Right) & " - Wrong:" & Integer'Image(Wrong));
+        New_Line;
 
         -- Put_Line("Your guess: " & Play);
         Turn := Turn + 1;

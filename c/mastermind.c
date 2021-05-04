@@ -27,14 +27,13 @@ int main(void)
 		secret_code[i] = random_num + '0';
 	}
 	secret_code[i] = '\0';
-	strcpy(secret_code, "1613");
 
 	printf("\n");
 	printf("Welcome to Mastermind! (C version)\n");
 	printf("The code is 4 digits long, chosen among 6 possible digits (1 to 6)\n");
 	printf("Can you find it in less than 12 turns?\n");
 	printf("\n");
-	printf("DEBUG: %s\n", secret_code);
+	/* printf("DEBUG: %s\n", secret_code); */
 	printf("\n");
 
 	while (turn <= nb_turns)
@@ -96,7 +95,7 @@ int main(void)
 			}
 		}
 		printf("Hint: %s (#: Right, *: Miss, x: Wrong)\n", play);
-		
+
 		printf("\n");
 
 		turn += 1;

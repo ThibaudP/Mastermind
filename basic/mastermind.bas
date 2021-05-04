@@ -30,7 +30,7 @@ PRINT ""
 WHILE TURN <= NBTURNS
     CODE$=SECRETCODE$
     RIGHT=0
-    WRONG=0
+    MISS=0
 
     PRINT "Turn"+STR$(TURN)+" - Your guess:"
     INPUT PLAY$
@@ -47,16 +47,16 @@ WHILE TURN <= NBTURNS
     FOR I=1 TO LEVEL
         IF MID$(PLAY$,I,1)=MID$(CODE$,I,1) THEN
             RIGHT=RIGHT+1
-            MID$(PLAY$,I,1) = "#"
-            MID$(CODE$,I,1) = "*"
+            MID$(CODE$,I,1)="#"
+            MID$(PLAY$,I,1)="X"
         END IF
     NEXT
 
     FOR I=1 TO LEVEL
         FOR J=1 TO LEVEL
-            IF MID$(PLAY$,J,1)=MID$(CODE$,I,1) THEN
-                WRONG=WRONG+1
-                MID$(CODE$,I,1) = "*"
+            IF MID$(CODE$,I,1)=MID$(PLAY$,J,1) THEN
+                MID$(CODE$,I,1)="*"
+                MISS=MISS+1
             END IF
         NEXT
     NEXT
@@ -69,7 +69,17 @@ WHILE TURN <= NBTURNS
         QUIT
     END IF
 
-    PRINT "Right:"+STR$(RIGHT)+" - Wrong:"+STR$(WRONG)
+    PRINT "Right:"+STR$(RIGHT)+" - Miss:"+STR$(MISS)
+    
+    REM Uncomment following block to enable hints
+    FOR I=1 TO LEVEL
+        IF MID$(CODE$,I,1)<>"#" AND MID$(CODE$,I,1)<>"*" THEN
+            MID$(CODE$,I,1)="x"
+        END IF
+    NEXT
+    PRINT "Hint: "+CODE$+" (#: Right, *: Miss, x: Wrong)"
+    
+    
     PRINT ""
 
     TURN=TURN+1

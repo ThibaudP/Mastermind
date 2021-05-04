@@ -1,12 +1,12 @@
-# Simple Mastermind (C version)
-Simple player vs computer Mastermind clone, in C
+# Simple Mastermind (BASIC version)
+Simple player vs computer Mastermind clone, in classic BASIC (BwBasic, a GW-Basic clone)
 
 ## How to use
-Compile with GCC
+Install BywaterBASIC (BwBASIC):
 ```bash
-$ gcc mastermind.c -o mastermind
+$ sudo apt install bwbasic
 ```
 Run
 ```bash
-$ ./mastermind
+$ bwbasic ./mastermind.bas
 ```

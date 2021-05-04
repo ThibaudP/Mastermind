@@ -40,7 +40,7 @@ def mastermind():
                 wrong += 1
                 code[i] = '*'
 
-        if right == 4:
+        if right == level:
             return(print("\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \o/\n"))
 
         print("Right: {} - Wrong: {}\n".format(right, wrong))

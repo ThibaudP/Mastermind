@@ -25,7 +25,7 @@ procedure Mastermind is
     Right: Integer := 0;
     Wrong: Integer := 0;
     I: Natural;
-    J: Natural;
+    J: Natural := 1;
 begin
     -- Reset the RNG
     reset(gen);

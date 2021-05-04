@@ -15,8 +15,7 @@ REM BwBASIC uses current time as seed for its rng, so we need to wait for
 REM ~1 second for the current time to change before we request another random number
 FOR I=1 TO LEVEL
     RANDOMIZE TIMER
-    SECRETCODE$ = SECRETCODE$+RIGHT$(STR$(INT(RND*(DIGITS)+1)), 1)
-
+    SECRETCODE$=SECRETCODE$+RIGHT$(STR$(INT(RND*(DIGITS)+1)), 1)
     REM Pause for 1 second
     T = TIMER + 1
     WHILE TIMER < T
@@ -47,15 +46,15 @@ WHILE TURN <= NBTURNS
     FOR I=1 TO LEVEL
         IF MID$(PLAY$,I,1)=MID$(CODE$,I,1) THEN
             RIGHT=RIGHT+1
-            MID$(CODE$,I,1)="#"
-            MID$(PLAY$,I,1)="X"
+            MID$(CODE$,I,1)="X"
+            MID$(PLAY$,I,1)="#"
         END IF
     NEXT
 
     FOR I=1 TO LEVEL
         FOR J=1 TO LEVEL
-            IF MID$(CODE$,I,1)=MID$(PLAY$,J,1) THEN
-                MID$(CODE$,I,1)="*"
+            IF MID$(PLAY$,I,1)=MID$(CODE$,J,1) THEN
+                MID$(PLAY$,I,1)="*"
                 MISS=MISS+1
             END IF
         NEXT
@@ -70,16 +69,15 @@ WHILE TURN <= NBTURNS
     END IF
 
     PRINT "Right:"+STR$(RIGHT)+" - Miss:"+STR$(MISS)
-    
+
     REM Uncomment following block to enable hints
     FOR I=1 TO LEVEL
-        IF MID$(CODE$,I,1)<>"#" AND MID$(CODE$,I,1)<>"*" THEN
-            MID$(CODE$,I,1)="x"
+        IF MID$(PLAY$,I,1)<>"#" AND MID$(PLAY$,I,1)<>"*" THEN
+            MID$(PLAY$,I,1)="x"
         END IF
     NEXT
-    PRINT "Hint: "+CODE$+" (#: Right, *: Miss, x: Wrong)"
-    
-    
+    PRINT "Hint: "+PLAY$+" (#: Right, *: Miss, x: Wrong)"
+
     PRINT ""
 
     TURN=TURN+1

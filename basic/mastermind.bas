@@ -22,7 +22,7 @@ FOR I=1 TO LEVEL
 NEXT
 
 PRINT "Combination found!"
-PRINT SECRETCODE$
+REM PRINT SECRETCODE$
 PRINT ""
 
 WHILE TURN <= NBTURNS
@@ -42,7 +42,6 @@ WHILE TURN <= NBTURNS
         QUIT
     END IF
 
-    REM Check all the correct characters
     FOR I=1 TO LEVEL
         IF MID$(PLAY$,I,1)=MID$(CODE$,I,1) THEN
             RIGHT=RIGHT+1
@@ -51,7 +50,6 @@ WHILE TURN <= NBTURNS
         END IF
     NEXT
 
-    REM Check the wrong characters
     FOR I=1 TO LEVEL
         FOR J=1 TO LEVEL
             IF MID$(PLAY$,J,1)=MID$(CODE$,I,1) THEN

@@ -2,3 +2,13 @@ ada/mastermind
 ada/mastermind.ali
 ada/mastermind.o
 c/mastermind
+js/node_modules/readline-sync/LICENSE
+js/node_modules/readline-sync/package.json
+js/node_modules/readline-sync/README-Deprecated.md
+js/node_modules/readline-sync/README.md
+js/node_modules/readline-sync/lib/encrypt.js
+js/node_modules/readline-sync/lib/read.cs.js
+js/node_modules/readline-sync/lib/read.ps1
+js/node_modules/readline-sync/lib/read.sh
+js/node_modules/readline-sync/lib/readline-sync.js
+js/package-lock.json

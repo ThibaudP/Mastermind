@@ -23,7 +23,6 @@ def mastermind():
 
         play = list(input("Turn {} - Your guess:\n".format(turn)))
         code = list(secretCode)
-        code = list("3213")
         right = 0
         miss = 0
 
@@ -34,12 +33,12 @@ def mastermind():
         for i, v in enumerate(play):
             if v == code[i]:
                 right += 1
-                code[i] = '#'
-                play[i] = '*'
-        for i, v in enumerate(code):
-            if v in play:
+                code[i] = 'X'
+                play[i] = '#'
+        for i, v in enumerate(play):
+            if v in code:
                 miss += 1
-                code[i] = '*'
+                play[i] = '*'
 
         if right == level:
             return(print("\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \o/\n"))
@@ -47,11 +46,11 @@ def mastermind():
         print("# Right: {} - * Miss: {}".format(right, miss))
         
         # Uncomment the next 5 lines to enable hints
-        for i, v in enumerate(code):
-            if '1' <= code[i] <= str(digits):
-                code[i] = 'x'
+        for i, v in enumerate(play):
+            if '1' <= play[i] <= str(digits):
+                play[i] = 'x'
         
-        print("Hint: {} (#: Right, *: Miss, x: Wrong)".format("".join(code)))
+        print("Hint: {} (#: Right, *: Miss, x: Wrong)".format("".join(play)))
         print("")
 
         turn += 1

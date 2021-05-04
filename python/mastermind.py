@@ -23,8 +23,9 @@ def mastermind():
 
         play = list(input("Turn {} - Your guess:\n".format(turn)))
         code = list(secretCode)
+        code = list("3213")
         right = 0
-        wrong = 0
+        miss = 0
 
         if len(play) != 4:
             player_lost(secretCode)
@@ -37,13 +38,21 @@ def mastermind():
                 play[i] = '*'
         for i, v in enumerate(code):
             if v in play:
-                wrong += 1
+                miss += 1
                 code[i] = '*'
 
         if right == level:
             return(print("\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \o/\n"))
 
-        print("Right: {} - Wrong: {}\n".format(right, wrong))
+        print("# Right: {} - * Miss: {}".format(right, miss))
+        
+        # Uncomment the next 5 lines to enable hints
+        for i, v in enumerate(code):
+            if '1' <= code[i] <= str(digits):
+                code[i] = 'x'
+        
+        print("Hint: {} (#: Right, *: Miss, x: Wrong)".format("".join(code)))
+        print("")
 
         turn += 1
 

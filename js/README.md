@@ -8,7 +8,7 @@ $ sudo apt install nodejs
 ```
 Install readline-sync
 ```bash
-$ ssudo npm install readline-sync
+$ sudo npm install readline-sync
 ```
 Run
 ```bash

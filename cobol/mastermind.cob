@@ -95,7 +95,7 @@
                    MOVE 1 to j
                END-PERFORM
 
-               IF hit = 4
+               IF hit = level
                    THEN DISPLAY "(ง ͡ʘ ͜ʖ ͡ʘ)ง"
                        DISPLAY " "
                        DISPLAY "You win! \o/"
@@ -103,9 +103,9 @@
                    STOP RUN
                END-IF
 
-               DISPLAY "Right: " WITH NO ADVANCING
+               DISPLAY "# Right: " WITH NO ADVANCING
                DISPLAY hit WITH NO ADVANCING
-               DISPLAY " - Miss: " WITH NO ADVANCING
+               DISPLAY " - * Miss: " WITH NO ADVANCING
                DISPLAY miss
 
       *>     Comment next block to disable hints

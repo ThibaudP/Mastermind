@@ -68,7 +68,7 @@ WHILE TURN <= NBTURNS
         QUIT
     END IF
 
-    PRINT "Right:"+STR$(RIGHT)+" - Miss:"+STR$(MISS)
+    PRINT "# Right:"+STR$(RIGHT)+" - * Miss:"+STR$(MISS)
 
     REM Uncomment following block to enable hints
     FOR I=1 TO LEVEL

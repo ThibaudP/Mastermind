@@ -14,13 +14,15 @@ procedure Mastermind is
     gen: Generator;
     RandNum: RandRange;
 
+    Level: Integer := 4;
+    NbDigits: Integer := 6;
     NbTurns: Integer := 12;
     Turn: Integer := 1;
     -- Strings have a fixed length in Ada.
     SecretCode: String := "0000";
-    Code: String(1..4);
+    Code: String(1..Level);
     InputPlay: String := "00000";
-    Play: String(1..4);
+    Play: String(1..Level);
     Last: Integer;
     Right: Integer := 0;
     Miss: Integer := 0;
@@ -38,7 +40,7 @@ begin
 
     -- Select 4 random numbers and slot them in each char of SecretCode
     I := 1;
-    while I <= 4 loop
+    while I <= Level loop
         RandNum := random(gen);
         -- Put_Line(randRange'Image(RandNum));
         SecretCode(I) := Character'Val(RandNum + 48);
@@ -61,12 +63,12 @@ begin
         Get_Line(InputPlay, Last);
 
         -- Set 4 beginning chars of InputPlay as Play
-        Play := InputPlay(1..4);
+        Play := InputPlay(1..Level);
         
 
         -- Check if player input is at least 4 characters long, game lost if not
         I := 1;
-        while I <= 4 loop
+        while I <= Level loop
             if Play(I) = '0' then
                 New_Line;
                 Put_Line("(╯°□°)╯︵ ┻━┻");
@@ -78,7 +80,7 @@ begin
             I := I + 1;
         end loop;
 
-        for I in 1..4 loop
+        for I in 1..Level loop
             if Play(I) = Code(I) then
                 Right := Right + 1;
                 Code(I) := '#';
@@ -86,8 +88,8 @@ begin
             end if;
         end loop;
 
-        for I in 1..4 loop
-            for J in 1..4 loop
+        for I in 1..Level loop
+            for J in 1..Level loop
                 if Play(J) = Code(I) then
                     Miss := Miss + 1;
                     Code(I) := '*';
@@ -96,7 +98,7 @@ begin
         end loop;
 
 
-        if Right = 4 then
+        if Right = Level then
             New_Line;
             Put_Line("(ง ͡ʘ ͜ʖ ͡ʘ)ง");
             New_Line;
@@ -104,9 +106,9 @@ begin
             return;
         end if;
 
-        Put_Line("Right:" & Integer'Image(Right) & " - Miss:" & Integer'Image(Miss));
+        Put_Line("# Right:" & Integer'Image(Right) & " - * Miss:" & Integer'Image(Miss));
         -- Commment next block to disable hints
-        for I in 1..4 loop
+        for I in 1..Level loop
             if Code(I) /= '#' then
                 if Code(I) /= '*' then
                     Code(I) := 'x';

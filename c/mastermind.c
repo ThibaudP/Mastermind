@@ -76,7 +76,7 @@ int main(void)
 			}
 		}
 
-		if (right == 4)
+		if (right == level)
 		{
 			printf("\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \\o/\n\n");
 			free(code);

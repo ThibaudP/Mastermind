@@ -29,7 +29,7 @@ const mastermind = function () {
     let play = readline.question(`Turn ${turn} - Your guess:\n`);
     play = Array.from(play);
 
-    if (play.length !== 4) {
+    if (play.length !== level) {
       console.log(`\n(╯°□°)╯︵ ┻━┻\n\nYou lose!\nAnswer was ${secretCode.join('')}\n`);
       return;
     }
@@ -51,11 +51,11 @@ const mastermind = function () {
       }
     }
 
-    if (right === 4) {
+    if (right === level) {
       console.log('\n(ง ͡ʘ ͜ʖ ͡ʘ)ง\n\nYou win! \\o/\n\n');
     }
 
-    console.log(`Right: ${right} - Miss: ${miss}`);
+    console.log(`# Right: ${right} - * Miss: ${miss}`);
     /* Comment next block to disable hints */
     for (let i = 0; i < level; i++) {
       if (play[i] !== '#' && play[i] !== '*') {
